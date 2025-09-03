@@ -1,8 +1,15 @@
 import os
 from sqlmodel import create_engine, Session, SQLModel, text
 from typing import Generator
+import os
+import logging
 
-from app.models.stock import Stock, StockPrice, StockMetrics
+# Suppress SQLAlchemy engine logs
+logging.getLogger("sqlalchemy.engine").setLevel(logging.WARNING)
+logging.getLogger("sqlalchemy.pool").setLevel(logging.WARNING)
+logging.getLogger("sqlalchemy.dialects").setLevel(logging.WARNING)
+
+from app.models import Company, Article, EdgarFiling, Summary
 
 DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/opening_bell")
 

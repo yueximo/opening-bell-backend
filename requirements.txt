@@ -4,3 +4,7 @@ psycopg2-binary
 celery
 redis
 python-dotenv
+httpx
+click
+edgartools
+pytest
